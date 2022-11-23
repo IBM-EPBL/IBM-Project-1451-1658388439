@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ims-final
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ims-final
+  template:
+    metadata:
+      labels:
+        app: ims-final 
+
+    spec:
+      containers:
+        - name: job-portal-container
+          image: jp.icr.io/padmanaban/ims-final
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP

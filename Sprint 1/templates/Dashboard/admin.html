@@ -1,0 +1,97 @@
+{% extends 'dashboard/base.html' %}
+{% block head %}
+    <title>Inventory Report</title>
+{% endblock %}
+
+{% block body %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <div class="home-content">
+      <div class="overview-boxes">
+       
+
+      <section class="catogories" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                  
+                    <div class="row">
+                      
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+     
+                            </div>  
+                        </div>
+                        <div class="col-lg-6 p-0" style=" margin-top: 25px;">
+                            <div class="catagories_item">
+                            <div class="catagories_item catagories_large_item" >
+                              
+                    
+                    
+                    </div></div>  
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+                                
+                            </div>  
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+                                
+                            </div>  
+                        </div>
+    
+                    </div>
+                </div>
+               
+                  <div class="container register-form">
+                   
+                    <div class="form">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        {{msg}}
+                        <span class="h1 fw-bold mb-0">Inventory Report</span>
+                      </div>
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                           
+                            <th>PRODUCT NAME</th>
+                            <th>QUANTITY IN</th>
+                            <th>QUANTITY OUT</th>
+                            <th>TO</th>
+                            <th>STOCK ON HAND</th>
+                            
+                          </tr>
+                        </thead>
+                        {% for row , row1 in row_row1 %}
+                      
+                          <tr>
+                          
+                            <td>{{row["PRODUCTNAME"]}}</td>
+                            <td>{{row["QUANTITYIN"]}}</td>
+                            <td>{{row["QUANTITYOUT"]}}</td>
+                            <td>{{row["TO"]}}</td>
+                            <td>{{row1}}</td>
+                            
+                          </tr>
+                         
+                         
+                        {% endfor %}
+                      </table>
+                      
+  
+                      
+                    </div>
+                    </div>
+                            
+                         
+                        </div>
+                    </div>
+                </div>
+                  
+        </div>
+    </section> 
+
+
+
+  {% endblock %}

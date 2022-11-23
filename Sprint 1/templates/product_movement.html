@@ -1,0 +1,145 @@
+{% extends 'dashboard/base.html' %}
+{% block head %}
+    <title>Products movement</title>
+{% endblock %}
+
+{% block body %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<div class="home-content">
+  <div class="overview-boxes">
+    <section class="catogories">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="d-flex align-items-center mb-3 pb-1">
+            <span class="h1 fw-bold mb-0">Add Movements to product</span>
+          </div>
+          <form class="mx-1 mx-md-4" action = "{{ url_for('moveproc') }}" method = "POST">
+          <div class="col-lg-6">
+            <div class="catagories_item">
+              <label >Select a product</label>
+                <select class="form-select form-select-lg mb-3" name="pname" aria-label="Default select example">
+                  {% for row in products %}
+                  <option value="{{row.PRODUCTNAME}}">{{row.PRODUCTNAME}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            
+           
+            
+          
+
+            <div class="col-lg-6">
+              <div class="catagories_item">
+                <label>Quantity to move</label>
+                <input type="text" name="quantityout" value="" placeholder="Quantity" class="form-control input-number mb-3" />
+              </div>
+             
+              <div class="catagories_item">
+                <label>To</label>
+                  <select class="form-select form-select-lg mb-3" name="to" aria-label="Default select example">
+                      <option value="Warehouse 1">Warehouse 1</option>
+                      <option value="Warehouse 2">Warehouse 2</option>
+                      <option value="Warehouse 3">Warehouse 3</option>
+                      <option value="Warehouse 4">Warehouse 4</option>
+                  </select>
+              </div>
+              {{msg}}
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg" style="width: 125px; display: block; margin-top: 50px; margin-left: auto; margin-right: auto;">
+          </form>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="catogories" >
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-6">
+                
+                  <div class="row">
+                    
+                      <div class="col-lg-6 col-md-6 col-12 p-1">
+                          <div class="catagories_item">
+   
+                          </div>  
+                      </div>
+                      <div class="col-lg-6 p-0" style=" margin-top: 25px;">
+                          <div class="catagories_item">
+                          <div class="catagories_item catagories_large_item" >
+                            
+                  
+                  
+                  </div></div>  
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-12 p-1">
+                          <div class="catagories_item">
+                              
+                          </div>  
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-12 p-1">
+                          <div class="catagories_item">
+                              
+                          </div>  
+                      </div>
+  
+                  </div>
+              </div>
+             
+                <div class="container register-form">
+                 
+                  <div class="form">
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                     
+                      <span class="h1 fw-bold mb-0">Product Movement List</span>
+                    </div>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                         
+                          <th>PRODUCT NAME</th>
+                          <th>QUANTITY IN</th>
+                          <th>QUANTITY OUT</th>
+                          <th>TO</th>
+                         
+                        </tr>
+                      </thead>
+                      {% for row in products %}
+                     
+                        <tr>
+                        
+                          <td>{{row["PRODUCTNAME"]}}</td>
+                          <td>{{row["QUANTITYIN"]}}</td>
+                          <td>{{row["QUANTITYOUT"]}}</td>
+                          <td>{{row["TO"]}}</td>
+                        
+                          
+                        </tr>
+                       
+                      
+                      {% endfor %}
+                    </table>
+                    
+                  </div>
+                  </div>
+                          
+                       
+                      </div>
+                  </div>
+              </div>
+                
+      </div>
+  </section> 
+
+
+  </div>
+</div>
+
+
+
+  
+
+
+
+  {% endblock %}

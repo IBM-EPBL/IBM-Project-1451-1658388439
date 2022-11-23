@@ -1,0 +1,112 @@
+{% extends 'dashboard/base.html' %}
+{% block head %}
+    <title>Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %} 
+		
+<div class="home-content">
+	<div class="overview-boxes">
+		<section class="catogories" >
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-12 p-1">
+						
+								
+					 
+								  
+								  <img src="static/img/Feedback-cuate.png" class="img-fluid" style="width: 500px; display: block; margin-left: auto; margin-right: auto;">
+						
+						
+							
+							
+		
+						</div>
+					
+					<div class="col-lg-6 col-md-6 col-12 p-1" style="margin-top: 40px;">
+					  <div class="container register-form">
+					   
+						<div class="form">
+                            {{msg}}
+						  <div class="d-flex align-items-center mb-3 pb-1">
+						  
+							<span class="h1 fw-bold mb-0">Feedback Form</span>
+						  </div>
+			
+							<div class="form-content">
+							  <form class="" action = "{{ url_for('feedbackadd') }}" method = "POST">
+                                <p>1) Is our interface good at finding the item present?</p>
+								<div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="interface" id="inlineRadio1" value="Very satisfied" >
+                                    <label class="form-check-label" for="inlineRadio1">Very satisfied</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="interface" id="inlineRadio2" value="satisfied">
+                                    <label class="form-check-label" for="inlineRadio2">satisfied</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="interface" id="inlineRadio3" value="unsatisfied">
+                                    <label class="form-check-label" for="inlineRadio3">unsatisfied</label>
+                                  </div>
+                                  <p>2) Is the availability of stock information accurate?</p>
+								<div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="availability" id="inlineRadio1" value="Very satisfied">
+                                    <label class="form-check-label" for="inlineRadio1">Very satisfied</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="availability" id="inlineRadio2" value="satisfied">
+                                    <label class="form-check-label" for="inlineRadio2">satisfied</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="availability" id="inlineRadio3" value="unsatisfied">
+                                    <label class="form-check-label" for="inlineRadio3">unsatisfied</label>
+                                  </div>
+                                  <p>3) Is our service user-friendly?</p>
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="userfriendly" id="inlineRadio1" value="Very satisfied" >
+                                      <label class="form-check-label" for="inlineRadio1">Very satisfied</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="userfriendly" id="inlineRadio2" value="satisfied">
+                                      <label class="form-check-label" for="inlineRadio2">satisfied</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="userfriendly" id="inlineRadio3" value="unsatisfied">
+                                      <label class="form-check-label" for="inlineRadio3">unsatisfied</label>
+                                    </div>
+                                    <p>4) Is our chatbot user-friendly and helpful?</p>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="chatbot" id="inlineRadio1" value="Very satisfied" >
+                                        <label class="form-check-label" for="inlineRadio1">Very satisfied</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="chatbot" id="inlineRadio2" value="satisfied">
+                                        <label class="form-check-label" for="inlineRadio2">satisfied</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="chatbot" id="inlineRadio3" value="unsatisfied">
+                                        <label class="form-check-label" for="inlineRadio3">unsatisfied</label>
+                                      </div>
+                                      <p>Is there anything you want share with us?</p>
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="suggest" placeholder="Tell us what you feel"></textarea>
+                                    
+								
+								<div class="text-center text-lg-start mt-4 pt-2">
+								  <input type="submit" class="btn btn-primary btn-lg" style="width: 125px; display: block; margin-left: auto; margin-right: auto;">
+								
+								 
+								</div>
+								</form>
+							 
+							</div>
+						</div>
+					</div>
+					  
+			</div>
+		</section> 
+	</div>
+	</div>
+	
+
+	{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'dashboard/base.html' %}
+{% block head %}
+    <title>Add Product</title>
+{% endblock %}
+
+{% block body %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    var quantitiy=0;
+       $('.quantity-right-plus').click(function(e){
+            
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+            
+            // If is not undefined
+                
+                $('#quantity').val(quantity + 1);
+    
+              
+                // Increment
+            
+        });
+    
+         $('.quantity-left-minus').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+            
+            // If is not undefined
+          
+                // Increment
+                if(quantity>0){
+                $('#quantity').val(quantity - 1);
+                }
+        });
+        
+    });
+    </script>
+    <div class="home-content">
+      <div class="overview-boxes">
+        
+
+      <section class="catogories" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                  
+                    <div class="row">
+                      
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+     
+                            </div>  
+                        </div>
+                        <div class="col-lg-6 p-0" style=" margin-top: 25px;">
+                            <div class="catagories_item">
+                            <div class="catagories_item catagories_large_item" >
+                              
+                    
+                    
+                    </div></div>  
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+                                
+                            </div>  
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 p-1">
+                            <div class="catagories_item">
+                                
+                            </div>  
+                        </div>
+    
+                    </div>
+                </div>
+               
+                  <div class="container register-form">
+                   
+                    <div class="form">
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                       
+                        <span class="h1 fw-bold mb-0">Add a product</span>
+                      </div>
+        
+                        <div class="form-content">
+                          <form class="mx-1 mx-md-4" action = "{{ url_for('addproc') }}" method = "POST">
+                            <div class="row">
+                                <div class="container">
+                                   <div class="row">
+                                        <div class="col-md-6">
+                                            <h2>Product Name</h2>
+                                                <input type="text" name="pname" value="" placeholder="Product Name" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="flex-row align-items-center mb-4">
+                                            <h2>Quantity</h2>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                        </button>
+                                                    </span>
+                                            </div>
+                                        </div>   
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-lg" style="width: 125px; display: block; margin-left: auto; margin-right: auto;">
+                            {{msg}}
+                          </form>
+                        </div>
+                    </div>
+                    </div>
+                    
+                         
+                        </div>
+                    </div>
+                </div>
+                  
+        </div>
+        
+  </section>
+
+
+  {% endblock %}
